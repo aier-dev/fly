@@ -3,13 +3,10 @@
 #![feature(type_alias_impl_trait)]
 #![feature(let_chains)]
 
-mod rt;
 use axum::{routing::get, Router};
 use tower_http::cors::CorsLayer;
+use trt::TRT;
 
-use crate::rt::RT;
-
-mod pg;
 mod url;
 
 fn main() -> anyhow::Result<()> {
@@ -52,7 +49,7 @@ fn main() -> anyhow::Result<()> {
     _ => 8080,
   };
 
-  RT.block_on(async move {
+  TRT.block_on(async move {
     awp::srv(router, port).await;
   });
   Ok(())

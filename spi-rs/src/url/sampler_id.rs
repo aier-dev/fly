@@ -1,7 +1,6 @@
 use anypack::url_fn;
 use axum::extract::Path;
-
-use crate::{pg::Q1, sql};
+use xxpg::{sql, Q1};
 
 sql!(SQL_SAMPLER_NAME_BY_ID : "SELECT name FROM img.sampler WHERE id=$1::bigint");
 

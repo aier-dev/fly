@@ -1,6 +1,5 @@
 use anypack::{url_fn, VecAny};
-
-use crate::{pg::Q, sql};
+use xxpg::{sql, Q};
 
 sql!(SQL_SAMPLER_ID_NAME : "SELECT id::bigint::oid,name FROM img.sampler");
 
