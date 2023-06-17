@@ -1,11 +1,13 @@
 use anypack::{url_fn, VecAny};
-use xxpg::{sql, Q};
+use xxpg::Q;
 
-sql!(SQL_SAMPLER_ID_NAME : "SELECT id::bigint::oid,name FROM img.sampler");
+Q!(
+  sampler_id_name :
+    SELECT id::bigint::oid,name FROM img.sampler;
+);
 
 url_fn!(get() {
-
-    let li = Q(&SQL_SAMPLER_ID_NAME, &[]).await?;
+    let li = sampler_id_name().await?;
     let mut vec = VecAny::new();
     for i in li {
         let id = i.get::<_, u32>(0);
