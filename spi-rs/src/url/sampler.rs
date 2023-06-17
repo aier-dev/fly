@@ -1,7 +1,6 @@
+use anypack::{url_fn, VecAny};
 use awp::Result;
 use axum::response::Response;
-
-use crate::{pack::VecAny, url_fn};
 
 url_fn!(get() {
   use crate::pg::{Q, SQL_SAMPLER_ID_NAME};

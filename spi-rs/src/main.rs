@@ -5,7 +5,6 @@
 use axum::{routing::get, Router};
 use tower_http::cors::CorsLayer;
 
-mod pack;
 mod pg;
 mod url;
 

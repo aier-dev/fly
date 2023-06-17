@@ -27,6 +27,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "anypack"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "25922958e844f738702ac1e9269a8cd2aaae599cade136eb1a0a42fc2f7cc9d8"
+dependencies = [
+ "axum",
+ "msgpacker",
+ "paste",
+]
+
+[[package]]
 name = "async-lazy"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -934,6 +945,7 @@ name = "spi-rs"
 version = "0.1.0"
 dependencies = [
  "anyhow",
+ "anypack",
  "async-lazy",
  "awp",
  "axum",
