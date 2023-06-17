@@ -2,16 +2,17 @@
 #![feature(type_alias_impl_trait)]
 #![feature(let_chains)]
 
+mod rt;
 use axum::{routing::get, Router};
 use tower_http::cors::CorsLayer;
+
+use crate::rt::RT;
 
 mod pg;
 mod url;
 
-#[tokio::main]
-async fn main() -> anyhow::Result<()> {
+fn main() -> anyhow::Result<()> {
   awp::init();
-  crate::pg::init().await;
 
   let mut router = Router::new();
   macro_rules! get {
@@ -50,6 +51,8 @@ async fn main() -> anyhow::Result<()> {
     _ => 8080,
   };
 
-  awp::srv(router, port).await;
+  RT.block_on(async move {
+    awp::srv(router, port).await;
+  });
   Ok(())
 }

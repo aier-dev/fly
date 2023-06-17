@@ -1,5 +1,10 @@
+use std::future::IntoFuture;
+
 use async_lazy::Lazy;
+use ctor::ctor;
 use tokio_postgres::{types::ToSql, Client, NoTls, Row, ToStatement};
+
+use crate::rt::RT;
 //   r = ONE0"SELECT name FROM img.sampler WHERE id=#{id}"
 // else
 //   r = await LI"SELECT id,name FROM img.sampler"
@@ -20,8 +25,11 @@ static PG: Lazy<Client> = Lazy::const_new(|| {
   })
 });
 
-pub async fn init() {
-  PG.force().await;
+#[ctor]
+fn init() {
+  RT.block_on(async move {
+    PG.into_future().await;
+  });
 }
 
 #[allow(non_snake_case)]

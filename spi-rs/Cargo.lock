@@ -232,6 +232,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "ctor"
+version = "0.2.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1586fa608b1dab41f667475b4a41faec5ba680aee428bfa5de4ea520fdc6e901"
+dependencies = [
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "digest"
 version = "0.10.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -950,7 +960,9 @@ dependencies = [
  "awp",
  "axum",
  "const-str",
+ "ctor",
  "futures-util",
+ "lazy_static",
  "msgpacker",
  "paste",
  "tokio",
