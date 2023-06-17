@@ -1429,9 +1429,9 @@ checksum = "1a515f5799fe4961cb532f983ce2b23082366b898e52ffbce459c86f67c8378a"
 
 [[package]]
 name = "xxpg"
-version = "0.1.3"
+version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a7495398e3071ca77569f3f2af7052faca9b8d4b9b274f6bfd92066853846545"
+checksum = "73ffc88873ca0a6f01920cdc1e4ecc56ee9849a155af3d22c2c9502b5491cd74"
 dependencies = [
  "async-lazy",
  "axum",
@@ -1447,9 +1447,9 @@ dependencies = [
 
 [[package]]
 name = "xxpg_proc"
-version = "0.1.0"
+version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "de557873ae1ed04a9e44b95fada3656cdceb3f36eb9bece7f6ebd23ef2fad38c"
+checksum = "02194ade5fcb63d0b610fe4cee86d021058d123307eb0d4654404c500155355d"
 dependencies = [
  "lazy_static",
  "proc-macro2",
