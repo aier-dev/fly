@@ -1,0 +1,10 @@
+{
+  "devDependencies": {},
+  "scripts": {},
+  "type": "module",
+  "dependencies": {
+    "@w5/pg": "^0.0.42",
+    "koa": "^2.14.2",
+    "msgpackr": "^1.9.5"
+  }
+}
