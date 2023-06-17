@@ -2,27 +2,39 @@ use std::future::IntoFuture;
 
 use async_lazy::Lazy;
 use ctor::ctor;
-use tokio_postgres::{types::ToSql, Client, NoTls, Row, ToStatement};
+use tokio_postgres::{types::ToSql, Client, NoTls, Row, Statement, ToStatement};
 
 use crate::rt::RT;
 
+pub struct LazyStatement(pub async_lazy::Lazy<tokio_postgres::Statement>);
+
+pub trait IntoStatement {
+  fn into(&self) -> &Statement;
+}
+
+impl IntoStatement for LazyStatement {
+  fn into(&self) -> &Statement {
+    self.0.get().unwrap()
+  }
+}
+
 #[macro_export]
 macro_rules! sql {
-  ($($var:ident : $sql:expr),+ ) => {
-    $(
-    pub static $var: Lazy<Statement> =
-      async_lazy::Lazy::const_new(|| Box::pin(async move { PG.force().await.prepare($sql).await.unwrap() }));
-    )+
+    ($($var:ident : $sql:expr),+ ) => {
+        $(
+            pub static $var: $crate::pg::LazyStatement  =
+            $crate::pg::LazyStatement(async_lazy::Lazy::const_new(|| Box::pin(async move { $crate::pg::PG.force().await.prepare($sql).await.unwrap() })));
+        )+
 
-    mod private {
-    #[ctor::ctor]
-    fn pg_statement_init() {
-      crate::RT.block_on(async move {
-        $(super::$var.force().await;)+
-      });
-    }
-    }
-  };
+            mod private {
+                #[ctor::ctor]
+                fn pg_statement_init() {
+                    crate::RT.block_on(async move {
+                        $(super::$var.0.force().await;)+
+                    });
+                }
+            }
+    };
 }
 
 //   r = ONE0"SELECT name FROM img.sampler WHERE id=#{id}"
@@ -53,14 +65,14 @@ fn init() {
 }
 
 #[allow(non_snake_case)]
-pub async fn Q(
-  statement: &Lazy<impl ToStatement>,
+pub async fn Q<T>(
+  statement: &T,
   params: &[&(dyn ToSql + Sync)],
-) -> Result<Vec<Row>, tokio_postgres::Error> {
-  PG.get()
-    .unwrap()
-    .query(statement.get().unwrap(), params)
-    .await
+) -> Result<Vec<Row>, tokio_postgres::Error>
+where
+  T: ?Sized + IntoStatement,
+{
+  PG.get().unwrap().query(statement.into(), params).await
 }
 
 #[allow(non_snake_case)]
@@ -69,7 +81,7 @@ pub async fn Q1<T>(
   params: &[&(dyn ToSql + Sync)],
 ) -> Result<Row, tokio_postgres::Error>
 where
-  T: ?Sized + ToStatement,
+  T: ?Sized + IntoStatement,
 {
-  PG.get().unwrap().query_one(statement, params).await
+  PG.get().unwrap().query_one(statement.into(), params).await
 }
