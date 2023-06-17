@@ -1,12 +1,7 @@
 use anypack::{url_fn, VecAny};
-use async_lazy::Lazy;
 use axum::response::Response;
-use tokio_postgres::Statement;
 
-use crate::{
-  pg::{PG, Q},
-  sql,
-};
+use crate::{pg::Q, sql};
 
 sql!(SQL_SAMPLER_ID_NAME : "SELECT id::bigint::oid,name FROM img.sampler");
 

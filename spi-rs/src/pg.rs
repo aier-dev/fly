@@ -2,7 +2,7 @@ use std::future::IntoFuture;
 
 use async_lazy::Lazy;
 use ctor::ctor;
-use tokio_postgres::{types::ToSql, Client, NoTls, Row, Statement, ToStatement};
+use tokio_postgres::{types::ToSql, Client, NoTls, Row, Statement};
 
 use crate::rt::RT;
 
@@ -29,7 +29,7 @@ macro_rules! sql {
             mod private {
                 #[ctor::ctor]
                 fn pg_statement_init() {
-                    crate::RT.block_on(async move {
+                    $crate::RT.block_on(async move {
                         $(super::$var.0.force().await;)+
                     });
                 }
