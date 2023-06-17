@@ -966,10 +966,11 @@ dependencies = [
  "msgpacker",
  "paste",
  "tokio",
- "tokio-postgres",
  "tower",
  "tower-http",
  "tracing",
+ "trt",
+ "xxpg",
 ]
 
 [[package]]
@@ -1208,6 +1209,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "trt"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1c920be819c7e4295a5ee77907d129818821c927d5677fa894b55fbe4b9193ff"
+dependencies = [
+ "lazy_static",
+ "tokio",
+]
+
+[[package]]
 name = "try-lock"
 version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1408,3 +1419,18 @@ name = "windows_x86_64_msvc"
 version = "0.48.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1a515f5799fe4961cb532f983ce2b23082366b898e52ffbce459c86f67c8378a"
+
+[[package]]
+name = "xxpg"
+version = "0.1.0"
+dependencies = [
+ "async-lazy",
+ "axum",
+ "ctor",
+ "msgpacker",
+ "paste",
+ "tokio",
+ "tokio-postgres",
+ "tracing",
+ "trt",
+]
