@@ -1,10 +1,7 @@
-use std::{pin::Pin, sync::Arc};
-
 use anypack::{url_fn, VecAny};
 use axum::response::Response;
-use tokio_postgres::Statement;
 
-use crate::pg::{PG, Q};
+use crate::pg::Q;
 
 // static SQL_SAMPLER_ID_NAME: Pin<Arc<Lazy<Statement, dyn Fn>>> = Arc::pin(Lazy::new(async move {
 //   PG.get()
