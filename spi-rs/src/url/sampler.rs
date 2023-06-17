@@ -1,19 +1,18 @@
 use anypack::{url_fn, VecAny};
+use async_lazy::Lazy;
 use axum::response::Response;
+use tokio_postgres::Statement;
 
-use crate::pg::Q;
+use crate::{
+  pg::{PG, Q},
+  sql,
+};
 
-// static SQL_SAMPLER_ID_NAME: Pin<Arc<Lazy<Statement, dyn Fn>>> = Arc::pin(Lazy::new(async move {
-//   PG.get()
-//     .unwrap()
-//     .prepare("SELECT id::bigint::oid,name FROM img.sampler")
-//     .await
-//     .unwrap()
-// }));
+sql!(SQL_SAMPLER_ID_NAME : "SELECT id::bigint::oid,name FROM img.sampler");
 
 url_fn!(get() {
 
-    let li = Q("SELECT id::bigint::oid,name FROM img.sampler", &[]).await?;
+    let li = Q(&SQL_SAMPLER_ID_NAME, &[]).await?;
     let mut vec = VecAny::new();
     for i in li {
         let id = i.get::<_, u32>(0);

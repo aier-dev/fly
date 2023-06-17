@@ -5,6 +5,26 @@ use ctor::ctor;
 use tokio_postgres::{types::ToSql, Client, NoTls, Row, ToStatement};
 
 use crate::rt::RT;
+
+#[macro_export]
+macro_rules! sql {
+  ($($var:ident : $sql:expr),+ ) => {
+    $(
+    pub static $var: Lazy<Statement> =
+      async_lazy::Lazy::const_new(|| Box::pin(async move { PG.force().await.prepare($sql).await.unwrap() }));
+    )+
+
+    mod private {
+    #[ctor::ctor]
+    fn pg_statement_init() {
+      crate::RT.block_on(async move {
+        $(super::$var.force().await;)+
+      });
+    }
+    }
+  };
+}
+
 //   r = ONE0"SELECT name FROM img.sampler WHERE id=#{id}"
 // else
 //   r = await LI"SELECT id,name FROM img.sampler"
@@ -33,14 +53,14 @@ fn init() {
 }
 
 #[allow(non_snake_case)]
-pub async fn Q<T>(
-  statement: &T,
+pub async fn Q(
+  statement: &Lazy<impl ToStatement>,
   params: &[&(dyn ToSql + Sync)],
-) -> Result<Vec<Row>, tokio_postgres::Error>
-where
-  T: ?Sized + ToStatement,
-{
-  PG.get().unwrap().query(statement, params).await
+) -> Result<Vec<Row>, tokio_postgres::Error> {
+  PG.get()
+    .unwrap()
+    .query(statement.get().unwrap(), params)
+    .await
 }
 
 #[allow(non_snake_case)]
