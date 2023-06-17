@@ -4,10 +4,6 @@ use tokio_postgres::{types::ToSql, Client, NoTls, Row, ToStatement};
 // else
 //   r = await LI"SELECT id,name FROM img.sampler"
 
-pub const SQL_SAMPLER_ID_NAME: &str = "SELECT id::bigint::oid,name FROM img.sampler";
-
-pub const SQL_SAMPLER_NAME_BY_ID: &str = "SELECT name FROM img.sampler WHERE id=$1::bigint";
-
 static PG: Lazy<Client> = Lazy::const_new(|| {
   let pg_uri = std::env::var("PG_URI").unwrap();
   Box::pin(async move {
@@ -20,12 +16,6 @@ static PG: Lazy<Client> = Lazy::const_new(|| {
       }
     });
 
-    futures_util::future::try_join(
-      client.prepare(SQL_SAMPLER_NAME_BY_ID),
-      client.prepare(SQL_SAMPLER_ID_NAME),
-    )
-    .await
-    .unwrap();
     client
   })
 });

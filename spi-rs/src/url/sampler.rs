@@ -2,8 +2,11 @@ use anypack::{url_fn, VecAny};
 use awp::Result;
 use axum::response::Response;
 
+use crate::pg::Q;
+
+pub const SQL_SAMPLER_ID_NAME: &str = "SELECT id::bigint::oid,name FROM img.sampler";
+
 url_fn!(get() {
-  use crate::pg::{Q, SQL_SAMPLER_ID_NAME};
 
   let li = Q(SQL_SAMPLER_ID_NAME, &[]).await?;
   let mut vec = VecAny::new();
