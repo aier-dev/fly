@@ -28,9 +28,9 @@ dependencies = [
 
 [[package]]
 name = "anypack"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b2db8cf399e8a387fa573eaaa096a5ffb6b393688649b25dd79c8bdc1eb4e159"
+checksum = "4b1b8eadfb0f72dbed6c3f1551102d3eb3150dc68109b68bb0bb181c35566bfd"
 dependencies = [
  "axum",
  "msgpacker",

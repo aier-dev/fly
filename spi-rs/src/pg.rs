@@ -9,7 +9,7 @@ use crate::rt::RT;
 // else
 //   r = await LI"SELECT id,name FROM img.sampler"
 
-static PG: Lazy<Client> = Lazy::const_new(|| {
+pub static PG: Lazy<Client> = Lazy::const_new(|| {
   let pg_uri = std::env::var("PG_URI").unwrap();
   Box::pin(async move {
     let (client, connection) = tokio_postgres::connect(&format!("postgres://{}", pg_uri), NoTls)
