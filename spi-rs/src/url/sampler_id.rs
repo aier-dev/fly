@@ -1,5 +1,5 @@
 use anypack::url_fn;
-use axum::{extract::Path, response::Response};
+use axum::extract::Path;
 
 use crate::{pg::Q1, sql};
 
