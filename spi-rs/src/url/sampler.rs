@@ -7,5 +7,5 @@ Q!(
 );
 
 url_fn!(get() {
-    sampler_id_name().await?
+    sampler_id_name()
 });
