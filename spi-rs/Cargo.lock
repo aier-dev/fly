@@ -37,10 +37,11 @@ dependencies = [
 
 [[package]]
 name = "anypack"
-version = "0.1.10"
+version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9aff48b8d6c99e7292eb3886472f0c60dd4f704379b48f609b30ca114af32fa6"
+checksum = "c849596e3fd0a8eeaf0c8544cbc3f5985bf25b01920c1fe3754c9b5e773ba832"
 dependencies = [
+ "async-trait",
  "axum",
  "paste",
  "xxai-msgpacker",
@@ -74,11 +75,12 @@ checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 
 [[package]]
 name = "awp"
-version = "0.1.2"
+version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d01f39451b80868f327affb62c88471651599957f4686a3b2003fd46cfa87012"
+checksum = "425b6310f7f09acc10996f031d51d818df2f9ded07957abe44882869da87c882"
 dependencies = [
  "anyhow",
+ "anypack",
  "axum",
  "coarsetime",
  "futures",
@@ -96,7 +98,7 @@ checksum = "f8175979259124331c1d7bf6586ee7e0da434155e4b2d48ec2c8386281d8df39"
 dependencies = [
  "async-trait",
  "axum-core",
- "bitflags",
+ "bitflags 1.3.2",
  "bytes",
  "futures-util",
  "http",
@@ -163,6 +165,12 @@ name = "bitflags"
 version = "1.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a"
+
+[[package]]
+name = "bitflags"
+version = "2.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6dbe3c979c178231552ecba20214a8272df4e09f232a87aef4320cf06539aded"
 
 [[package]]
 name = "block-buffer"
@@ -803,7 +811,7 @@ version = "0.3.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "567664f262709473930a4bf9e51bf2ebf3348f2e748ccc50dea20646858f8f29"
 dependencies = [
- "bitflags",
+ "bitflags 1.3.2",
 ]
 
 [[package]]
@@ -1123,11 +1131,11 @@ dependencies = [
 
 [[package]]
 name = "tower-http"
-version = "0.4.0"
+version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5d1d42a9b3f3ec46ba828e8d376aec14592ea199f70a06a548587ecd1c4ab658"
+checksum = "a8bd22a874a2d0b70452d5597b12c537331d49060824a95f49f108994f94aa4c"
 dependencies = [
- "bitflags",
+ "bitflags 2.3.2",
  "bytes",
  "futures-core",
  "futures-util",
@@ -1167,9 +1175,9 @@ dependencies = [
 
 [[package]]
 name = "tracing-attributes"
-version = "0.1.24"
+version = "0.1.26"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0f57e3ca2a01450b1a921183a9c9cbfda207fd822cef4ccb00a65402cbba7a74"
+checksum = "5f4f31f56159e98206da9efd823404b79b6ef3143b4a7ab76e67b1751b25a4ab"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -1217,9 +1225,9 @@ dependencies = [
 
 [[package]]
 name = "trt"
-version = "0.1.1"
+version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1c920be819c7e4295a5ee77907d129818821c927d5677fa894b55fbe4b9193ff"
+checksum = "3bc585f5b45c94af498ab985e5638cf8c8360b2175df2a24491e9d4a0200d39d"
 dependencies = [
  "lazy_static",
  "tokio",
@@ -1473,9 +1481,9 @@ dependencies = [
 
 [[package]]
 name = "xxpg"
-version = "0.1.8"
+version = "0.1.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "31ec1d5b0b3f80dae2d5078306f1b868566870cce4915945bdfc8eccb2f59372"
+checksum = "ecabbbdc8b0e57aa8949cbc454867b0fe2860a6d22758a1c6a3a41158f637bb4"
 dependencies = [
  "async-lazy",
  "axum",
@@ -1491,9 +1499,9 @@ dependencies = [
 
 [[package]]
 name = "xxpg_proc"
-version = "0.1.3"
+version = "0.1.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "df22390d41a574d98dd0ccd703f87f3f4f6cb8226cc35c305572471e9a2be1fa"
+checksum = "2bce603e276adb665cac10e9f8ad3a3f3fa9e51fbf364ed456bc64819b47baf5"
 dependencies = [
  "async-lazy",
  "lazy_static",

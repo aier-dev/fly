@@ -1,4 +1,3 @@
-use anypack::url_fn;
 use xxpg::Q;
 
 Q!(
@@ -6,6 +5,6 @@ Q!(
     SELECT id,name FROM img.sampler;
 );
 
-url_fn!(get() {
-    sampler_id_name()
-});
+pub async fn get() -> awp::any!() {
+  Ok(sampler_id_name().await?)
+}

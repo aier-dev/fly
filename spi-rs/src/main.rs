@@ -3,6 +3,7 @@
 #![feature(type_alias_impl_trait)]
 #![feature(let_chains)]
 
+use awp::anypack::FnAny;
 use axum::{routing::get, Router};
 use tower_http::cors::CorsLayer;
 use trt::TRT;
@@ -32,7 +33,10 @@ fn main() -> anyhow::Result<()> {
       )
     };
     ($url:expr, $func:ident) => {
-      router = router.route(const_str::concat!('/', $url), get($crate::url::$func::get))
+      router = router.route(
+        const_str::concat!('/', $url),
+        get(FnAny($crate::url::$func::get)),
+      )
     };
   }
 
