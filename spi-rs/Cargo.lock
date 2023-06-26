@@ -37,9 +37,9 @@ dependencies = [
 
 [[package]]
 name = "anypack"
-version = "0.1.11"
+version = "0.1.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c849596e3fd0a8eeaf0c8544cbc3f5985bf25b01920c1fe3754c9b5e773ba832"
+checksum = "084317e7ae8fbad2e1206de84eaea470c4c1e01b2104eadcf39e35d0ba346706"
 dependencies = [
  "async-trait",
  "axum",
