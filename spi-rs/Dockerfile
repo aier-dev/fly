@@ -15,7 +15,7 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y --no-modify-path --default-tool
 
 ADD Cargo.toml .
 ADD ./src ./src
-ADD .env .
+ADD .docker.env .env
 
 RUN \
 set -o allexport &&\
