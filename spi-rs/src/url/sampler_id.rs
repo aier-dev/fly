@@ -1,5 +1,5 @@
 use axum::extract::Path;
-use xxpg::Q1;
+use xg::Q1;
 
 Q1!(sampler_name_by_id : SELECT name FROM img.sampler WHERE id=$1);
 

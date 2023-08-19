@@ -1,4 +1,4 @@
-use xxpg::Q;
+use xg::Q;
 
 Q!(
   sampler_id_name :

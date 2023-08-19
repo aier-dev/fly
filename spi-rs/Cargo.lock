@@ -48,15 +48,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "async-lazy"
-version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f8537ff82429d7272fa9b4368466c064825d6763cfbe4f72857642d7d0852b59"
-dependencies = [
- "tokio",
-]
-
-[[package]]
 name = "async-trait"
 version = "0.1.68"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -92,9 +83,9 @@ dependencies = [
 
 [[package]]
 name = "axum"
-version = "0.6.18"
+version = "0.6.20"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f8175979259124331c1d7bf6586ee7e0da434155e4b2d48ec2c8386281d8df39"
+checksum = "3b829e4e32b91e643de6eafe82b1d90675f5874230191a4ffbc1b336dec4d6bf"
 dependencies = [
  "async-trait",
  "axum-core",
@@ -527,7 +518,7 @@ version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8263075bb86c5a1b1427b5ae862e8889656f126e9f77c484496e8b47cf5c5558"
 dependencies = [
- "regex-automata",
+ "regex-automata 0.1.10",
 ]
 
 [[package]]
@@ -575,15 +566,6 @@ dependencies = [
  "libc",
  "wasi",
  "windows-sys",
-]
-
-[[package]]
-name = "msgpacker"
-version = "0.4.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "79f77b4108a99ed7e834b46df33537a644ea94863a98a9140017eda1d08249f6"
-dependencies = [
- "msgpacker-derive",
 ]
 
 [[package]]
@@ -662,15 +644,38 @@ dependencies = [
 
 [[package]]
 name = "paste"
-version = "1.0.12"
+version = "1.0.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9f746c4065a8fa3fe23974dd82f15431cc8d40779821001404d10d2e79ca7d79"
+checksum = "de3145af08024dea9fa9914f381a17b8fc6034dfb00f3a84013f7ff43f29ed4c"
 
 [[package]]
 name = "percent-encoding"
 version = "2.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9b2a4787296e9989611394c33f193f676704af1686e70b8f8033ab5ba9a35a94"
+
+[[package]]
+name = "pgm"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "be8455aa92c1f6918cbb8098f35f4df2f4966672aa8ba0312880d8c50249b63b"
+dependencies = [
+ "lazy_static",
+ "paste",
+ "pgw",
+]
+
+[[package]]
+name = "pgw"
+version = "0.2.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2091e3f8688594d7b35323cf595f635e478fbd17c281b71592d508f003f1ca9e"
+dependencies = [
+ "futures",
+ "tokio",
+ "tracing",
+ "xxai-tokio-postgres",
+]
 
 [[package]]
 name = "phf"
@@ -712,9 +717,9 @@ dependencies = [
 
 [[package]]
 name = "pin-project-lite"
-version = "0.2.9"
+version = "0.2.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e0a7ae3ac2f1173085d398531c705756c94a4c56843785df85a60c1a0afac116"
+checksum = "12cc1b0bf1727a77a54b6654e7b5f1af8604923edc8b81885f8ec92f9e3f0a05"
 
 [[package]]
 name = "pin-utils"
@@ -741,17 +746,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "postgres-types"
-version = "0.2.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f028f05971fe20f512bcc679e2c10227e57809a3af86a7606304435bc8896cd6"
-dependencies = [
- "bytes",
- "fallible-iterator",
- "postgres-protocol",
-]
-
-[[package]]
 name = "ppv-lite86"
 version = "0.2.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -759,9 +753,9 @@ checksum = "5b40af805b3121feab8a3c29f04d8ad262fa8e0561883e7653e024ae4479e6de"
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.63"
+version = "1.0.66"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7b368fba921b0dce7e60f5e04ec15e565b3303972b42bcfde1d0713b881959eb"
+checksum = "18fb31db3f9bddb2ea821cde30a9f70117e3f119938b5ee630b7403aa6e2ead9"
 dependencies = [
  "unicode-ident",
 ]
@@ -816,13 +810,14 @@ dependencies = [
 
 [[package]]
 name = "regex"
-version = "1.8.4"
+version = "1.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d0ab3ca65655bb1e41f2a8c8cd662eb4fb035e67c3f78da1d61dffe89d07300f"
+checksum = "81bc1d4caf89fac26a70747fe603c130093b53c773888797a6329091246d651a"
 dependencies = [
  "aho-corasick",
  "memchr",
- "regex-syntax 0.7.2",
+ "regex-automata 0.3.6",
+ "regex-syntax 0.7.4",
 ]
 
 [[package]]
@@ -835,6 +830,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "regex-automata"
+version = "0.3.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fed1ceff11a1dddaee50c9dc8e4938bd106e9d89ae372f192311e7da498e3b69"
+dependencies = [
+ "aho-corasick",
+ "memchr",
+ "regex-syntax 0.7.4",
+]
+
+[[package]]
 name = "regex-syntax"
 version = "0.6.29"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -842,9 +848,9 @@ checksum = "f162c6dd7b008981e4d40210aca20b4bd0f9b60ca9271061b07f78537722f2e1"
 
 [[package]]
 name = "regex-syntax"
-version = "0.7.2"
+version = "0.7.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "436b050e76ed2903236f032a59761c1eb99e1b0aead2c257922771dab1fc8c78"
+checksum = "e5ea92a5b6195c6ef2a0295ea818b312502c6fc94dde986c5553242e18fd4ce2"
 
 [[package]]
 name = "rustc-demangle"
@@ -985,7 +991,7 @@ dependencies = [
  "tower-http",
  "tracing",
  "trt",
- "xxpg",
+ "xg",
 ]
 
 [[package]]
@@ -1048,18 +1054,17 @@ checksum = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
 
 [[package]]
 name = "tokio"
-version = "1.28.2"
+version = "1.32.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "94d7b1cfd2aa4011f2de74c2c4c63665e27a71006b0a192dcd2710272e73dfa2"
+checksum = "17ed6077ed6cd6c74735e21f37eb16dc3935f96878b1fe961074089cc80893f9"
 dependencies = [
- "autocfg",
+ "backtrace",
  "bytes",
  "libc",
  "mio",
  "num_cpus",
- "parking_lot",
  "pin-project-lite",
- "socket2 0.4.9",
+ "socket2 0.5.3",
  "tokio-macros",
  "windows-sys",
 ]
@@ -1073,30 +1078,6 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn",
-]
-
-[[package]]
-name = "tokio-postgres"
-version = "0.7.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6e89f6234aa8fd43779746012fcf53603cdb91fdd8399aa0de868c2d56b6dde1"
-dependencies = [
- "async-trait",
- "byteorder",
- "bytes",
- "fallible-iterator",
- "futures-channel",
- "futures-util",
- "log",
- "parking_lot",
- "percent-encoding",
- "phf",
- "pin-project-lite",
- "postgres-protocol",
- "postgres-types",
- "socket2 0.5.3",
- "tokio",
- "tokio-util",
 ]
 
 [[package]]
@@ -1225,10 +1206,11 @@ dependencies = [
 
 [[package]]
 name = "trt"
-version = "0.1.4"
+version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3bc585f5b45c94af498ab985e5638cf8c8360b2175df2a24491e9d4a0200d39d"
+checksum = "e0757e48a5e70ef2107f80364420dcef62100f766df7cf3ea3088fd6fa65b1a8"
 dependencies = [
+ "anyhow",
  "lazy_static",
  "tokio",
 ]
@@ -1436,6 +1418,34 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1a515f5799fe4961cb532f983ce2b23082366b898e52ffbce459c86f67c8378a"
 
 [[package]]
+name = "xg"
+version = "0.0.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "66f6f82546c631553f3474de1e4e07212d046c641c64d8927525f22fe865c90c"
+dependencies = [
+ "axum",
+ "lazy_static",
+ "paste",
+ "pgm",
+ "tracing",
+ "xg_proc",
+]
+
+[[package]]
+name = "xg_proc"
+version = "0.0.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "32cbd992ac2aa728514621e02657292e11687c75f341eaf039e4c448c6d136c7"
+dependencies = [
+ "lazy_static",
+ "pgw",
+ "proc-macro2",
+ "regex",
+ "tokio",
+ "trt",
+]
+
+[[package]]
 name = "xxai-msgpacker"
 version = "0.4.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1446,9 +1456,9 @@ dependencies = [
 
 [[package]]
 name = "xxai-postgres-types"
-version = "0.2.6"
+version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ce2f3f6823c5e0123a7720d17412b5c3afd59b8cb0e5c10241965a73f7791f62"
+checksum = "e24d322d736a568d92fb2f340609cf32dd88caa2fa33cfbb03f37be1195cb1af"
 dependencies = [
  "bytes",
  "fallible-iterator",
@@ -1457,9 +1467,9 @@ dependencies = [
 
 [[package]]
 name = "xxai-tokio-postgres"
-version = "0.7.10"
+version = "0.7.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9e8c1ec2a81212f28905a7a8c2f69f89ce54fdd0530ec91073aefad674a6beda"
+checksum = "c0acc37e195f37b5eaff27998faafa4dcba31c2db194f5760134017cad898af3"
 dependencies = [
  "async-trait",
  "byteorder",
@@ -1473,41 +1483,9 @@ dependencies = [
  "phf",
  "pin-project-lite",
  "postgres-protocol",
+ "rand",
  "socket2 0.5.3",
  "tokio",
  "tokio-util",
  "xxai-postgres-types",
-]
-
-[[package]]
-name = "xxpg"
-version = "0.1.16"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ecabbbdc8b0e57aa8949cbc454867b0fe2860a6d22758a1c6a3a41158f637bb4"
-dependencies = [
- "async-lazy",
- "axum",
- "ctor",
- "msgpacker",
- "paste",
- "tokio",
- "tracing",
- "trt",
- "xxai-tokio-postgres",
- "xxpg_proc",
-]
-
-[[package]]
-name = "xxpg_proc"
-version = "0.1.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2bce603e276adb665cac10e9f8ad3a3f3fa9e51fbf364ed456bc64819b47baf5"
-dependencies = [
- "async-lazy",
- "lazy_static",
- "proc-macro2",
- "regex",
- "tokio",
- "tokio-postgres",
- "trt",
 ]
