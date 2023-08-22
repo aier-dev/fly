@@ -16,9 +16,9 @@ tower-http = { version = "0.4.3", features = ["cors", "tokio"] }
 ctor = "0.2.4"
 anypack = { version = "0.1.13" }
 trt = "0.1.5"
-xg = "0.0.4"
+apg = "0.0.6"
 
-#xg = { version = "0.1.8", path = "/Users/z/art/rust/xg" }
+#apg = { version = "0.1.8", path = "/Users/z/art/rust/apg" }
 [dependencies.tokio]
 version = "1.32.0"
 features = ["macros", "rt-multi-thread"]

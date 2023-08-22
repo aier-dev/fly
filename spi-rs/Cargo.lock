@@ -19,9 +19,9 @@ checksum = "f26201604c87b1e01bd3d98f8d5d9a8fcbb815e8cedb41ffccbeb4bf593a35fe"
 
 [[package]]
 name = "aho-corasick"
-version = "1.0.2"
+version = "1.0.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "43f6cb1bf222025340178f382c426f13757b2960e89779dfcb319c32542a5a41"
+checksum = "6748e8def348ed4d14996fa801f4122cd763fff530258cdc03f64b25f89d3a5a"
 dependencies = [
  "memchr",
 ]
@@ -45,6 +45,34 @@ dependencies = [
  "axum",
  "paste",
  "xxai-msgpacker",
+]
+
+[[package]]
+name = "apg"
+version = "0.0.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ce7c51b4c540a778d715d724950f501e27787a5433bde88f1f304a7a40a8a69d"
+dependencies = [
+ "apg_proc",
+ "axum",
+ "lazy_static",
+ "paste",
+ "pgm",
+ "tracing",
+]
+
+[[package]]
+name = "apg_proc"
+version = "0.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "db3269f3bd46327d3779f018a915bd3346d6f8438b424d4082c7b664892d7a65"
+dependencies = [
+ "lazy_static",
+ "pgw",
+ "proc-macro2",
+ "regex",
+ "tokio",
+ "trt",
 ]
 
 [[package]]
@@ -192,9 +220,9 @@ checksum = "89b2fd2a0dcf38d7971e2194b6b6eebab45ae01067456a7fd93d5547a61b70be"
 
 [[package]]
 name = "cc"
-version = "1.0.82"
+version = "1.0.83"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "305fe645edc1442a0fa8b6726ba61d422798d37a52e12eaecf4b022ebbb88f01"
+checksum = "f1174fb0b6ec23863f8b971027804a42614e347eafb0a95bf0b12cdae21fc4d0"
 dependencies = [
  "libc",
 ]
@@ -225,9 +253,9 @@ checksum = "aca749d3d3f5b87a0d6100509879f9cf486ab510803a4a4e1001da1ff61c2bd6"
 
 [[package]]
 name = "cpufeatures"
-version = "0.2.8"
+version = "0.2.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "03e69e28e9f7f77debdedbaafa2866e1de9ba56df55a8bd7cfc724c25a09987c"
+checksum = "a17b76ff3a4162b0b27f354a0c87015ddad39d35f9c0c36607a3bdd175dde1f1"
 dependencies = [
  "libc",
 ]
@@ -729,9 +757,9 @@ checksum = "8b870d8c151b6f2fb93e84a13146138f05d02ed11c7e7c54f8826aaaf7c9f184"
 
 [[package]]
 name = "postgres-protocol"
-version = "0.6.5"
+version = "0.6.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "78b7fa9f396f51dffd61546fd8573ee20592287996568e6175ceb0f8699ad75d"
+checksum = "49b6c5ef183cd3ab4ba005f1ca64c21e8bd97ce4699cfea9e8d9a2c4958ca520"
 dependencies = [
  "base64",
  "byteorder",
@@ -872,15 +900,15 @@ checksum = "1ad4cc8da4ef723ed60bced201181d83791ad433213d8c24efffda1eec85d741"
 
 [[package]]
 name = "scopeguard"
-version = "1.1.0"
+version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d29ab0c6d3fc0ee92fe66e2d99f700eab17a8d57d1c1d3b748380fb20baa78cd"
+checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
 
 [[package]]
 name = "serde"
-version = "1.0.183"
+version = "1.0.185"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "32ac8da02677876d532745a130fc9d8e6edfa81a269b107c5b00829b91d8eb3c"
+checksum = "be9b6f69f1dfd54c3b568ffa45c310d6973a5e5148fd40cf515acaf38cf5bc31"
 
 [[package]]
 name = "serde_json"
@@ -952,9 +980,9 @@ dependencies = [
 
 [[package]]
 name = "smallvec"
-version = "1.10.0"
+version = "1.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a507befe795404456341dfab10cef66ead4c041f62b8b11bbb92bffe5d0953e0"
+checksum = "62bb4feee49fdd9f707ef802e22365a35de4b7b299de4763d44bfea899442ff9"
 
 [[package]]
 name = "socket2"
@@ -982,6 +1010,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "anypack",
+ "apg",
  "awp",
  "axum",
  "const-str",
@@ -992,14 +1021,13 @@ dependencies = [
  "tower-http",
  "tracing",
  "trt",
- "xg",
 ]
 
 [[package]]
 name = "stringprep"
-version = "0.1.2"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8ee348cb74b87454fff4b551cbf727025810a004f88aeacae7f85b87f4e9a1c1"
+checksum = "db3737bde7edce97102e0e2b15365bf7a20bfdb5f60f4f9e8d7004258a51a8da"
 dependencies = [
  "unicode-bidi",
  "unicode-normalization",
@@ -1417,34 +1445,6 @@ name = "windows_x86_64_msvc"
 version = "0.48.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ed94fce61571a4006852b7389a063ab983c02eb1bb37b47f8272ce92d06d9538"
-
-[[package]]
-name = "xg"
-version = "0.0.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "66f6f82546c631553f3474de1e4e07212d046c641c64d8927525f22fe865c90c"
-dependencies = [
- "axum",
- "lazy_static",
- "paste",
- "pgm",
- "tracing",
- "xg_proc",
-]
-
-[[package]]
-name = "xg_proc"
-version = "0.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "32cbd992ac2aa728514621e02657292e11687c75f341eaf039e4c448c6d136c7"
-dependencies = [
- "lazy_static",
- "pgw",
- "proc-macro2",
- "regex",
- "tokio",
- "trt",
-]
 
 [[package]]
 name = "xxai-msgpacker"

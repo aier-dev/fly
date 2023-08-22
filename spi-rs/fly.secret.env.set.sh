@@ -4,4 +4,4 @@ DIR=$(realpath $0) && DIR=${DIR%/*}
 cd $DIR
 set -ex
 
-flyctl secrets set PG_URI=$PG_URI
+flyctl secrets set APG_URI=$APG_URI
