@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 anyhow = { version = "1.0.75", features = ["backtrace"] }
-awp = "0.1.9"
+awp = "0.1.10"
 tracing = "0.1.37"
 axum = "0.6.20"
 tower = { version = "0.4.13", features = ["timeout"] }

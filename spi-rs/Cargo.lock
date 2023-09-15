@@ -94,14 +94,15 @@ checksum = "d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa"
 
 [[package]]
 name = "awp"
-version = "0.1.9"
+version = "0.1.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "18e870b12dc378f0a4c7a2918c0981d7a796bf95cbb22a34df5b7131ab8cbc65"
+checksum = "622c7157071f294587ec35ba40da56137846ecc550fd05d39b2032986cba771c"
 dependencies = [
  "anyhow",
  "anypack",
  "axum",
  "coarsetime",
+ "envport",
  "futures",
  "loginit",
  "once_cell",
@@ -291,6 +292,12 @@ dependencies = [
  "crypto-common",
  "subtle",
 ]
+
+[[package]]
+name = "envport"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "86d0f76f69fcec8faa084c2b2cdace039a945366bea47d81576c171863051992"
 
 [[package]]
 name = "fallible-iterator"
