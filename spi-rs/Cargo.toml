@@ -6,17 +6,17 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 anyhow = { version = "1.0.75", features = ["backtrace"] }
-awp = "0.1.4"
+awp = "0.1.9"
 tracing = "0.1.37"
 axum = "0.6.20"
 tower = { version = "0.4.13", features = ["timeout"] }
 const-str = "0.5.6"
 futures-util = "0.3.28"
-tower-http = { version = "0.4.3", features = ["cors", "tokio"] }
+tower-http = { version = "0.4.4", features = ["cors", "tokio"] }
 ctor = "0.2.4"
-anypack = { version = "0.1.13" }
+anypack = { version = "0.1.17" }
 trt = "0.1.5"
-apg = "0.0.6"
+apg = "0.0.9"
 
 #apg = { version = "0.1.8", path = "/Users/z/art/rust/apg" }
 [dependencies.tokio]
