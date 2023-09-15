@@ -16,7 +16,7 @@ tower-http = { version = "0.4.4", features = ["cors", "tokio"] }
 ctor = "0.2.4"
 anypack = { version = "0.1.17" }
 trt = "0.1.5"
-apg = "0.0.9"
+apg = "0.0.10"
 
 #apg = { version = "0.1.8", path = "/Users/z/art/rust/apg" }
 [dependencies.tokio]

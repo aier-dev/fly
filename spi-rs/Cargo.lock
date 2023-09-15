@@ -49,9 +49,9 @@ dependencies = [
 
 [[package]]
 name = "apg"
-version = "0.0.9"
+version = "0.0.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8ab5db167961344f43a5e3df5641cded5f68b4c2c17034d0add4ef04280c52eb"
+checksum = "5d4b462bf8563a76dd1213e37ac61181682a37345c7d272f0074ec4846d77315"
 dependencies = [
  "apg_proc",
  "axum",
@@ -63,9 +63,9 @@ dependencies = [
 
 [[package]]
 name = "apg_proc"
-version = "0.0.8"
+version = "0.0.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "effc07c0f188ef8a32f4a6dce1b4553179a4b2bc1571cf06eba971a7f0a95f6d"
+checksum = "3fafd8bfa1b2aff94f0feb22a1c0b8256948f3a8296e08895dfcdcb48035032a"
 dependencies = [
  "lazy_static",
  "pgw",
@@ -718,9 +718,9 @@ dependencies = [
 
 [[package]]
 name = "pgw"
-version = "0.2.4"
+version = "0.2.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6578117be2a283e6b00b0dbae522cfe0442d337c26709276522c44fa3f3f2eb6"
+checksum = "af4f42460b509b2396d9177ea0df950ddd31d48175ec945de4742932ca95cc17"
 dependencies = [
  "futures",
  "tokio",
@@ -1290,9 +1290,9 @@ checksum = "3528ecfd12c466c6f163363caf2d02a71161dd5e1cc6ae7b34207ea2d42d81ed"
 
 [[package]]
 name = "typenum"
-version = "1.16.0"
+version = "1.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "497961ef93d974e23eb6f433eb5fe1b7930b659f06d12dec6fc44a8f554c0bba"
+checksum = "42ff0bf0c66b8238c6f3b578df37d0b7848e55df8577b3f74f92a69acceeb825"
 
 [[package]]
 name = "unicode-bidi"
